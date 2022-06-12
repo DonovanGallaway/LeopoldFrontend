@@ -19,7 +19,7 @@ export class IncomeComponent implements OnInit {
    }
 
   changeEntry(){
-    this.incomeService.changeIncome(this.incomeSourceControl.value, this.incomeAmountControl.value)
+    this.incomeService.changeIncome(this.incomeSourceControl.value, parseInt(this.incomeAmountControl.value))
   }
 
 

@@ -1,5 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IncomeService } from 'src/app/utils/income.service';
 
 import { IncomeComponent } from './income.component';
@@ -10,7 +11,8 @@ describe('IncomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IncomeComponent ]
+      declarations: [ IncomeComponent ],
+      imports: [FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
   });
@@ -54,7 +56,7 @@ describe('IncomeComponent', () => {
   it('should update total income when form is submitted', ()=>{
     const totalIncome = component.incomeService.totalIncome
     component.incomeSourceControl.setValue('increase test')
-    component.incomeAmountControl.setValue(1000)
+    component.incomeAmountControl.setValue('1000')
     component.changeEntry()
     expect(component.incomeService.totalIncome).toBeGreaterThan(totalIncome)
   })

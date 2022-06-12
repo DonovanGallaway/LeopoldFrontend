@@ -1,0 +1,21 @@
+<h1>Income Summary</h1>
+<table>
+    <tr>
+        <th>Sources</th>
+        <th>Amount</th>
+    </tr>
+    <tr *ngFor="let x of incomeService.incomeSources | keyvalue">
+        <td [ngClass]="'income-source'">{{x.key}}</td>
+        <td [ngClass]="'income-amount'">{{x.value}}</td>
+    </tr>
+</table>
+
+<!-- <form id="income-form"> -->
+    <label for="income source">Income Source:</label><br>
+    <input type="text" [formControl]="incomeSourceControl"><br>
+    <label for="income amount">Income Amount:</label><br>
+    <input type="text" [formControl]="incomeAmountControl"><br>
+    <button (click)="changeEntry()">Submit</button>
+<!-- </form> -->
+
+<p>Total Income: {{incomeService.sumIncome}}</p>
